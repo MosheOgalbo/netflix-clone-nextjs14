@@ -3,43 +3,18 @@ import prisma from "../utils/db";
 import { MovieCard } from "./MovieCard";
 import { getServerSession } from "next-auth";
 import { authOptions } from "../utils/auth";
+import { fetchMoviesByUserId } from "../api/video/apiMovie";
 
-async function getData(userId: string) {
-  try {
-    const data = await prisma.movie.findMany({
-      select: {
-        id: true,
-        overview: true,
-        title: true,
-        WatchLists: {
-          where: {
-            userId: userId,
-          },
-        },
-        imageString: true,
-        youtubeString: true,
-        age: true,
-        release: true,
-        duration: true,
-      },
-      orderBy: {
-        createdAt: "desc",
-      },
-      take: 4,
-    });
-
-    return data;
-  } catch (error) {
-    console.log({ error });
-    return null;
-  }
-}
 
 export default async function RecentlyAdded() {
   const session = await getServerSession(authOptions);
-  const data = await getData(session?.user?.email as string);
-  if (!data) return <><div className="mt-10 w-full flex justify-center items-stretch flex-auto">{"🎦 not found video 🎦"}</div></>;
+  const data = await fetchMoviesByUserId(session?.user?.email as string);
 
+  if (!data){
+    // ("not found 🎦");
+    return <>
+  <div className="mt-10 w-full flex justify-center items-stretch flex-auto">{"not found 🎦"}</div></>;
+  }
   return (
     <>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 mt-8 gap-6">
