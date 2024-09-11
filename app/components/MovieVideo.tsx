@@ -2,25 +2,30 @@ import prisma from "../utils/db";
 import MovieButtons from "./MovieButtons";
 
 async function getData() {
-  const data = await prisma.movie.findFirst({
-    select: {
-      title: true,
-      overview: true,
-      videoSource: true,
-      imageString: true,
-      release: true,
-      duration: true,
-      id: true,
-      age: true,
-      youtubeString: true,
-    },
-  });
-  return data;
+  try {
+    const data = await prisma.movie.findFirst({
+      select: {
+        title: true,
+        overview: true,
+        videoSource: true,
+        imageString: true,
+        release: true,
+        duration: true,
+        id: true,
+        age: true,
+        youtubeString: true,
+      },
+    });
+    return data;
+  } catch (error) {
+    console.log(error);
+    return null;
+  }
 }
 
 export default async function MovieVideo() {
   const data = await getData();
-
+  if (!data) return <>{"🎦 not found video 🎦"}</>;
   return (
     <div className="h-[55vh] lg:h-[60vh] w-full flex justify-start items-center">
       <video

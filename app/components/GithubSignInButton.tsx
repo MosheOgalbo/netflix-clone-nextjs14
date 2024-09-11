@@ -1,13 +1,16 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
-import { GithubIcon } from "lucide-react";
+import { Github } from "lucide-react";
 import { signIn } from "next-auth/react";
+import GithubIcon from "@/public/github.svg";
+import Image from "next/image";
 
 export default function GithubSignInButton() {
   return (
     <Button onClick={() => signIn("github")} variant="outline" size="icon">
-      <GithubIcon className="w-4 h-4" />
+      <Github className="w-4 h-4" />
+      {/* <Image src={GithubIcon} alt="github icon" className="w-4 h-4" /> */}
     </Button>
   );
 }

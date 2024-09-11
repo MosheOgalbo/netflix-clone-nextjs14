@@ -5,35 +5,40 @@ import { getServerSession } from "next-auth";
 import { authOptions } from "../utils/auth";
 
 async function getData(userId: string) {
-  const data = await prisma.movie.findMany({
-    select: {
-      id: true,
-      overview: true,
-      title: true,
-      WatchLists: {
-        where: {
-          userId: userId,
+  try {
+    const data = await prisma.movie.findMany({
+      select: {
+        id: true,
+        overview: true,
+        title: true,
+        WatchLists: {
+          where: {
+            userId: userId,
+          },
         },
+        imageString: true,
+        youtubeString: true,
+        age: true,
+        release: true,
+        duration: true,
       },
-      imageString: true,
-      youtubeString: true,
-      age: true,
-      release: true,
-      duration: true,
-    },
-    orderBy: {
-      createdAt: "desc",
-    },
-    take: 4,
-  });
+      orderBy: {
+        createdAt: "desc",
+      },
+      take: 4,
+    });
 
-  return data;
+    return data;
+  } catch (error) {
+    console.log({ error });
+    return null;
+  }
 }
 
 export default async function RecentlyAdded() {
   const session = await getServerSession(authOptions);
   const data = await getData(session?.user?.email as string);
-
+  if (!data) return <>{"🎦 not found video 🎦"}</>;
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 mt-8 gap-6">
       {data.map((movie) => (
