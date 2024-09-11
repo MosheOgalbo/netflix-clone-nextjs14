@@ -18,14 +18,14 @@ async function getData() {
     });
     return data;
   } catch (error) {
-    console.log(error);
     return null;
   }
 }
 
 export default async function MovieVideo() {
   const data = await getData();
-  if (!data) return <>{"🎦 not found video 🎦"}</>;
+  if (!data) return <div className="h-[55vh] lg:h-[40vh] w-full flex justify-center items-center flex-auto">{"🎦 not found video 🎦"}</div>;
+
   return (
     <div className="h-[55vh] lg:h-[60vh] w-full flex justify-start items-center">
       <video
