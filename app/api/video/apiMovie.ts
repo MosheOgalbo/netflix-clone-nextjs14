@@ -11,7 +11,7 @@ interface iMovie {
     videoSource?: string;
     category?: string;
     youtubeString: string;
-    WatchLists?: Array<{ id: string ; userId: string | null}>;
+    WatchLists?: Array<{ id: string ; userId?: string | null}>;
     createdAt?: Date;
 }
 
@@ -36,8 +36,7 @@ export async function getDataMovie()  {
   }}
 
   //TODO: add // : Promise<iMovie[]|null>
-
-export async function fetchMoviesByUserId(userId: string) {
+export async function fetchMoviesByUserId(userId: string){
     try {
     const data = await prisma.movie.findMany({
       select: {
@@ -65,3 +64,15 @@ export async function fetchMoviesByUserId(userId: string) {
   } catch (error) {
     return null;
   }}
+
+//   export async function createVideos(data1: Partial<iMovie>) {
+//     try {
+//       const result = await prisma.movie.createMany({
+//         data: [data1],
+//       });
+//       return result;
+//     } catch (error) {
+//       console.error(error);
+//       return null;
+//     }
+// }

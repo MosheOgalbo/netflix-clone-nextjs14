@@ -11,7 +11,6 @@ export default async function RecentlyAdded() {
   const data = await fetchMoviesByUserId(session?.user?.email as string);
 
   if (!data){
-    // ("not found 🎦");
     return <>
   <div className="mt-10 w-full flex justify-center items-stretch flex-auto">{"not found 🎦"}</div></>;
   }

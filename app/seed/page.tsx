@@ -4,7 +4,7 @@ import prisma from "../utils/db";
 export default function SeedDatabase() {
   async function postData() {
     "use server";
-   var stutos =await prisma.movie.createMany({
+    const stutos =await prisma.movie.createMany({
       data: [
         {
           id: 0,
