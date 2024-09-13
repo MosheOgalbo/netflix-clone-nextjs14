@@ -11,59 +11,61 @@ interface iMovie {
     videoSource?: string;
     category?: string;
     youtubeString: string;
-    WatchLists?: Array<{ id: string ; userId?: string | null}>;
+    WatchLists?: Array<{ id: string; userId?: string | null }>;
     createdAt?: Date;
 }
 
-export async function getDataMovie()  {
+export async function getDataMovie() {
     try {
-    const data = await prisma.movie.findFirst ({
-      select: {
-        title: true,
-        overview: true,
-        videoSource: true,
-        imageString: true,
-        release: true,
-        duration: true,
-        id: true,
-        age: true,
-        youtubeString: true,
-      },
-    });
-    return data;
-  } catch (error) {
-    return null;
-  }}
+        const data = await prisma.movie.findFirst({
+            select: {
+                title: true,
+                overview: true,
+                videoSource: true,
+                imageString: true,
+                release: true,
+                duration: true,
+                id: true,
+                age: true,
+                youtubeString: true,
+            },
+        });
+        return data;
+    } catch (error) {
+        return null;
+    }
+}
 
-  //TODO: add // : Promise<iMovie[]|null>
-export async function fetchMoviesByUserId(userId: string){
+//TODO: add // : Promise<iMovie[]|null>
+export async function fetchMoviesByUserId(userId: string) {
     try {
-    const data = await prisma.movie.findMany({
-      select: {
-        id: true,
-        overview: true,
-        title: true,
-        WatchLists: {
-          where: {
-            userId: userId,
-          },
-        },
-        imageString: true,
-        youtubeString: true,
-        age: true,
-        release: true,
-        duration: true,
-      },
-      orderBy: {
-        createdAt: "desc",
-      },
-      take: 4,
-    });
+        const data = await prisma.movie.findMany({
+            select: {
+                id: true,
+                overview: true,
+                title: true,
+                WatchLists: {
+                    where: {
+                        userId: userId,
+                    },
+                },
+                imageString: true,
+                youtubeString: true,
+                age: true,
+                release: true,
+                duration: true,
+            },
+            orderBy: {
+                createdAt: "desc",
+            },
+            take: 4,
+        });
 
-    return data;
-  } catch (error) {
-    return null;
-  }}
+        return data;
+    } catch (error) {
+        return null;
+    }
+}
 
 //   export async function createVideos(data1: Partial<iMovie>) {
 //     try {

@@ -1,6 +1,9 @@
 'use client';
 
+import Link from "next/link";
 import { useEffect } from 'react';
+import Image from "next/image";
+import Logo from "../public/netflix_logo.svg";
 
 export default function Error({
   error,
@@ -26,6 +29,9 @@ export default function Error({
       >
         Try again
       </button>
+      <Link href="/home" className="w-32 mt-10">
+        <Image src={Logo} alt="Netflix logo" priority />
+      </Link>
     </main>
   );
 }

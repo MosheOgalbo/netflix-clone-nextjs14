@@ -5,22 +5,22 @@ import { redirect } from "next/navigation";
 import Navbar from "../components/Navbar";
 
 export default async function HomeLayout({
-  children,
+    children,
 }: {
-  children: ReactNode;
+    children: ReactNode;
 }) {
-  const session = await getServerSession(authOptions);
+    const session = await getServerSession(authOptions);
 
     if (!session) {
-      return redirect("/login");
+        return redirect("/login");
     }
 
-  return (
-    <>
-      <main className="w-full max-w-7xl mx-auto sm:px-6 lg:px-8">
-        <Navbar />
-        {children}
-      </main>
-    </>
-  );
+    return (
+        <>
+            <main className="w-full max-w-7xl mx-auto sm:px-6 lg:px-8">
+                <Navbar />
+                {children}
+            </main>
+        </>
+    );
 }
