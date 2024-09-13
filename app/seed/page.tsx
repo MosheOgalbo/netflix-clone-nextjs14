@@ -4,7 +4,7 @@ import prisma from "../utils/db";
 export default function SeedDatabase() {
   async function postData() {
     "use server";
-    const stutos =await prisma.movie.createMany({
+    const stutos = await prisma.movie.createMany({
       data: [
         {
           id: 0,
@@ -17,9 +17,9 @@ export default function SeedDatabase() {
             "https://utfs.io/f/916e1354-a1b6-4832-97ab-9fa95876b91a-bnyedt.mp4",
           imageString:
             "https://image.tmdb.org/t/p/original/r7DuyYJ0N3cD8bRKsR5Ygq2P7oa.jpg",
-          release: 2023,
+          release: 2024,
           category: "recent",
-          youtubeString: "https://www.youtube.com/embed/GVPzGBvPrzw",
+          youtubeString: "https://www.youtube.com/embed/GVPzGBvPrzw"
         },
         {
           imageString:
@@ -30,10 +30,10 @@ export default function SeedDatabase() {
           id: 1,
           overview:
             "Celebrated sleuth Hercule Poirot, now retired and living in self-imposed exile in Venice, reluctantly attends a Halloween séance at a decaying, haunted palazzo. When one of the guests is murdered, the detective is thrust into a sinister world of shadows and secrets.",
-          release: 2023,
+          release: 2024,
           videoSource: "",
           category: "recent",
-          youtubeString: "https://www.youtube.com/embed/yEddsSwweyE",
+          youtubeString: "https://www.youtube.com/embed/yEddsSwweyE"
         },
         {
           id: 2,
@@ -42,12 +42,12 @@ export default function SeedDatabase() {
           duration: 1.5,
           overview:
             "Recently fired and desperate for work, a troubled young man named Mike agrees to take a position as a night security guard at an abandoned theme restaurant: Freddy Fazbear's Pizzeria. But he soon discovers that nothing at Freddy's is what it seems.",
-          release: 2023,
+          release: 2022,
           videoSource: "",
           imageString:
             "https://image.tmdb.org/t/p/original/t5zCBSB5xMDKcDqe91qahCOUYVV.jpg",
           category: "recent",
-          youtubeString: "https://www.youtube.com/embed/0VH9WCFV6XQ",
+          youtubeString: "https://www.youtube.com/embed/0VH9WCFV6XQ"
         },
 
         {
@@ -58,10 +58,10 @@ export default function SeedDatabase() {
           imageString:
             "https://image.tmdb.org/t/p/original/dDPwCyZG8arYwMDoQl0sm4xccCE.jpg",
           overview: `Raymond "Red" Reddington, one of the FBI's most wanted fugitives, surrenders in person at FBI Headquarters in Washington, D.C. He claims that he and the FBI have the same interests: bringing down dangerous criminals and terrorists. In the last two decades, he's made a list of criminals and terrorists that matter the most but the FBI cannot find because it does not know they exist. Reddington calls this "The Blacklist". Reddington will co-operate, but insists that he will speak only to Elizabeth Keen, a rookie FBI profiler`,
-          release: 2013,
+          release: 2022,
           videoSource: "",
           category: "show",
-          youtubeString: "https://www.youtube.com/embed/-WYdUaK54fU",
+          youtubeString: "https://www.youtube.com/embed/-WYdUaK54fU"
         },
         {
           id: 4,
@@ -75,7 +75,7 @@ export default function SeedDatabase() {
           release: 2011,
           videoSource: "",
           category: "show",
-          youtubeString: "https://www.youtube.com/embed/85z53bAebsI",
+          youtubeString: "https://www.youtube.com/embed/85z53bAebsI"
         },
         {
           id: 5,
@@ -89,7 +89,7 @@ export default function SeedDatabase() {
           release: 2019,
           videoSource: "",
           category: "show",
-          youtubeString: "https://www.youtube.com/embed/s9APLXM9Ei8",
+          youtubeString: "https://www.youtube.com/embed/s9APLXM9Ei8"
         },
         {
           id: 6,
@@ -103,7 +103,7 @@ export default function SeedDatabase() {
           release: 2023,
           videoSource: "",
           category: "recent",
-          youtubeString: "https://www.youtube.com/embed/jzQn0-WH4WM",
+          youtubeString: "https://www.youtube.com/embed/jzQn0-WH4WM"
         },
         {
           id: 7,
@@ -117,7 +117,7 @@ export default function SeedDatabase() {
           release: 2023,
           videoSource: "",
           category: "movie",
-          youtubeString: "https://www.youtube.com/embed/shW9i6k8cB0",
+          youtubeString: "https://www.youtube.com/embed/shW9i6k8cB0"
         },
 
         {
@@ -132,7 +132,7 @@ export default function SeedDatabase() {
             "Despite his family’s baffling generations-old ban on music, Miguel dreams of becoming an accomplished musician like his idol, Ernesto de la Cruz. Desperate to prove his talent, Miguel finds himself in the stunning and colorful Land of the Dead following a mysterious chain of events. Along the way, he meets charming trickster Hector, and together, they set off on an extraordinary journey to unlock the real story behind Miguel's family history.",
           videoSource: "",
           category: "movie",
-          youtubeString: "https://www.youtube.com/embed/xlnPHQ3TLX8",
+          youtubeString: "https://www.youtube.com/embed/xlnPHQ3TLX8"
         },
         {
           id: 9,
@@ -146,7 +146,7 @@ export default function SeedDatabase() {
             "Adrian Monk was once a rising star with the San Francisco Police Department, legendary for using unconventional means to solve the department's most baffling cases. But after the tragic (and still unsolved) murder of his wife Trudy, he developed an extreme case of obsessive-compulsive disorder. Now working as a private consultant, Monk continues to investigate cases in the most unconventional ways.",
           videoSource: "",
           category: "show",
-          youtubeString: "https://www.youtube.com/embed/mftbaaU82Uc",
+          youtubeString: "https://www.youtube.com/embed/mftbaaU82Uc"
         },
         {
           id: 10,
@@ -160,9 +160,9 @@ export default function SeedDatabase() {
           release: 1999,
           videoSource: "",
           category: "show",
-          youtubeString: "https://www.youtube.com/embed/7hRxWGo49oc",
-        },
-      ],
+          youtubeString: "https://www.youtube.com/embed/7hRxWGo49oc"
+        }
+      ]
     });
     console.log(stutos, "data");
   }
