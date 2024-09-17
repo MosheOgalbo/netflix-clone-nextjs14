@@ -8,7 +8,11 @@ import Image from "next/image";
 
 export default function GithubSignInButton() {
   return (
-    <Button onClick={() => signIn("github")} variant="outline" size="icon">
+    <Button
+      onClick={async () => await signIn("github")}
+      variant="outline"
+      size="icon"
+    >
       <Github className="w-4 h-4" />
       {/* <Image src={GithubIcon} alt="github icon" className="w-4 h-4" /> */}
     </Button>
