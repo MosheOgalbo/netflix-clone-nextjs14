@@ -52,6 +52,11 @@ You can also inspect your database schema with:
 ```bash
 npx prisma studio
 ```
+To connect the DB to the project
+
+```bash
+npx prisma db push
+```
 
 ## Getting Started
 
